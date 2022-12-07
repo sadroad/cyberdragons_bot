@@ -4,3 +4,6 @@ fileloader.ts
 # Folder made by Kwik db to watch guild command versions
 db/
 node_modules
+.DS_Store
+.dccache
+.vscode
