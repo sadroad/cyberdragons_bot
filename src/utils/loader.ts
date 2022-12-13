@@ -19,10 +19,9 @@ export async function importDirectory(path: string) {
     if (file.isFile) {
       if (!currentPath.endsWith(".ts")) continue;
       paths.push(
-        `import "${Deno.mainModule.substring(0, Deno.mainModule.lastIndexOf("/"))}/${
-          currentPath.substring(
-            currentPath.indexOf("src/"),
-          )
+        `import "${Deno.mainModule.substring(0, Deno.mainModule.lastIndexOf("/"))}/${currentPath.substring(
+          currentPath.indexOf("src/"),
+        )
         }#${uniqueFilePathCounter}";`,
       );
       continue;

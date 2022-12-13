@@ -1,0 +1,2 @@
+if a client is attempted to be deleted by the bot, but it doesn't exist on 
+the server then the generation of a new client will fail because all of the end points hang

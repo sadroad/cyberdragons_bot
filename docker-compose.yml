@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  bot:
+    build: .
+    depends_on:
+      - verification
+      - vpn
+  
+  verification:
+    image: "redis:alpine"
+    command: "redis-server --requirepass ${REDIS_PASSWORD} --port ${REDIS_VERIFICATION_PORT}"
+    restart: unless-stopped
+    volumes: 
+      - redis_verification_data:/data
+    ports:
+      - "${REDIS_VERIFICATION_PORT}:${REDIS_VERIFICATION_PORT}"
+
+  vpn:
+    image: "redis:alpine"
+    command: "redis-server --requirepass ${REDIS_PASSWORD} --port ${REDIS_VPN_PORT}"
+    restart: unless-stopped
+    volumes: 
+      - redis_vpn_data:/data
+    ports:
+      - "${REDIS_VPN_PORT}:${REDIS_VPN_PORT}"
+
+volumes:
+  redis_verification_data:
+  redis_vpn_data:

@@ -1,0 +1,10 @@
+create cyberdragon role that has the add rection permission
+remove the add reaction permission from the @everyone role
+get role id
+get guild id
+get admin channel id/create admin channel
+setup wireguard hostname/username/password
+set up bot token
+
+middle inital
+max length 128 char

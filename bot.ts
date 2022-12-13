@@ -8,7 +8,7 @@ import {
   enableCacheSweepers,
   enableHelpersPlugin,
   enablePermissionsPlugin,
-  GatewayIntents,
+  GatewayIntents
 } from "./deps.ts";
 import { Command } from "./src/types/commands.ts";
 

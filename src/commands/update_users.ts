@@ -1,6 +1,6 @@
 import { ApplicationCommandTypes, InteractionResponseTypes } from "../../deps.ts";
 import cyberdragons_data from "../../test.json" assert { type: "json" };
-import { redis } from "../database/mod.ts";
+import { redis_verification } from "../database/mod.ts";
 import { createCommand } from "./mod.ts";
 
 createCommand({
@@ -13,7 +13,7 @@ createCommand({
         //TODO Ask Ansh about how we should update the roster. Right now it reads from a JSON file that I got from the API
         cyberdragons_data.items.forEach(async user => {
             const user_id = user.account.primaryEmailAddress.split("@")[0].toLowerCase();
-            await redis.setnx(user_id, '');
+            await redis_verification.setnx(user_id, '0');
         });
         await Bot.helpers.sendPrivateInteractionResponse(
             interaction.id,
